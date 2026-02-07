@@ -1,8 +1,12 @@
+@use '@/styles/mixins' as mix;
 @use '@/styles/variables' as *;
 
 .searchBarContainer {
     position: relative;
-    min-width: 25rem;
+    width: 100%;
+    @include mix.screen("tablet", min) {
+        max-width: 25rem;
+    }
 
     .searchInput {
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

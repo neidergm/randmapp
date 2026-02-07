@@ -22,18 +22,6 @@ body {
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
-
-    &>footer {
-      margin: 0.5rem 0;
-      opacity: 0.6;
-      padding: 0.5rem;
-      color: $text-main;
-
-      * {
-        font-size: 0.75rem;
-        text-align: center;
-      }
-    }
   }
 
 }
