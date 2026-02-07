@@ -13,7 +13,7 @@ const getLastVisited = (): VisitedCharacter[] => {
 }
 
 export const useLastVisited = () => {
-    const [visited, setVisited] = useState<VisitedCharacter[]>([]);
+    const [visited, setVisited] = useState<VisitedCharacter[] | null>(null);
 
     useEffect(() => {
         function loadStorage() {
@@ -24,7 +24,7 @@ export const useLastVisited = () => {
 
     const addVisited = (char: VisitedCharacter) => {
         setVisited((prev) => {
-            const filtered = prev.filter((c) => c.id !== char.id);
+            const filtered = prev?.filter((c) => c.id !== char.id) || [];
             const firstItems = [char, ...filtered].slice(0, MAX_VISITED);
 
             localStorage.setItem(LAST_VISITED_KEY, JSON.stringify(firstItems));
