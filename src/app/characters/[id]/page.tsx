@@ -4,6 +4,7 @@ import Image from 'next/image';
 import BackButton from '@/components/BackButton';
 import styles from './page.module.scss';
 import { LuDna, LuGlobe, LuMapPin, LuShieldCheck } from 'react-icons/lu';
+import CharacterLocation from '@/components/Character/CharacterLocation';
 
 const CharacterDetailPage = async ({
     params
@@ -70,14 +71,20 @@ const CharacterDetailPage = async ({
                             <div>
                                 <span className={styles.infoLabel}>Origin</span>
                                 <span className={styles.infoValue}>{char.origin.name}</span>
+                                <div className={styles.infoValueDetails}>
+                                    <CharacterLocation location={char.origin} />
+                                </div>
                             </div>
                         </div>
 
                         <div className={styles.infoCard}>
                             <div className={styles.infoIcon}><LuMapPin size={20} /></div>
                             <div>
-                                <span className={styles.infoLabel}>Last Known Location</span>
+                                <span className={styles.infoLabel}>Location</span>
                                 <span className={styles.infoValue}>{char.location.name}</span>
+                                <div className={styles.infoValueDetails}>
+                                    <CharacterLocation location={char.location} />
+                                </div>
                             </div>
                         </div>
                     </div>

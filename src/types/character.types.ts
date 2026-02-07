@@ -1,3 +1,5 @@
+import { CharLocation } from "./location.types";
+
 export interface Info {
     count: number;
     pages: number;
@@ -17,8 +19,8 @@ export interface Character {
     species:  string;
     type:     string;
     gender:   string;
-    origin:   Location;
-    location: Location;
+    origin:   CharLocation;
+    location: CharLocation;
     image:    string;
     episode:  string[];
     url:      string;
@@ -30,9 +32,4 @@ export interface VisitedCharacter {
     name:   string;
     status: string;
     image:  string;
-}
-
-export interface Location {
-    name: string;
-    url:  string;
 }

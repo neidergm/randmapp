@@ -14,7 +14,7 @@
 }
 
 body {
-  background: $bg-body;
+  background: radial-gradient(ellipse at center, lighten($bg-body, 6%) 0%, $bg-body 70%);
   color: var(--foreground);
   font-family: var(--font-space-grotesk), sans-serif;
 
