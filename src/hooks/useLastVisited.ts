@@ -1,6 +1,6 @@
 'use client';
 import { VisitedCharacter } from '@/types/character.types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const LAST_VISITED_KEY = 'lastVisited';
@@ -13,7 +13,14 @@ const getLastVisited = (): VisitedCharacter[] => {
 }
 
 export const useLastVisited = () => {
-    const [visited, setVisited] = useState<VisitedCharacter[]>(getLastVisited());
+    const [visited, setVisited] = useState<VisitedCharacter[]>([]);
+
+    useEffect(() => {
+        function loadStorage() {
+            setVisited(getLastVisited());
+        }
+        loadStorage();
+    }, []);
 
     const addVisited = (char: VisitedCharacter) => {
         setVisited((prev) => {
