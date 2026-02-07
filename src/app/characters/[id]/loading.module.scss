@@ -1,0 +1,115 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mix;
+
+@keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, $bg-card 25%, $bg-border 50%, $bg-card 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite ease-in-out;
+    border-radius: $radius-sm;
+}
+
+.container {
+    padding: 2rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.backLink {
+    width: 200px;
+    height: 18px;
+    margin-bottom: 2rem;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 3rem;
+    align-items: start;
+
+    @include mix.screen("tablet", max) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+.image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: $radius-md;
+    border: 3px solid $bg-border;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.uid {
+    width: 160px;
+    height: 16px;
+    margin-bottom: 0.75rem;
+}
+
+.name {
+    width: 70%;
+    height: 48px;
+    border-radius: $radius-sm;
+}
+
+.divider {
+    width: 100px;
+    height: 4px;
+    background-color: $bg-border;
+    border-radius: 2px;
+    margin: 1.5rem 0 2rem;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @include mix.screen("mobile", max) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.infoCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: $bg-surface;
+    border: 1px solid $primary-dark;
+    border-radius: $radius-md;
+    padding: 1.25rem;
+}
+
+.infoCardIcon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: $radius-sm;
+}
+
+.infoCardLines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.infoCardLabel {
+    width: 80px;
+    height: 12px;
+}
+
+.infoCardValue {
+    width: 70%;
+    height: 16px;
+}

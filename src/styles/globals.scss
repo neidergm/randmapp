@@ -14,7 +14,7 @@
 }
 
 body {
-  background: $bg-body;
+  background: radial-gradient(ellipse at center, lighten($bg-body, 6%) 0%, $bg-body 70%);
   color: var(--foreground);
   font-family: var(--font-space-grotesk), sans-serif;
 
@@ -24,4 +24,26 @@ body {
     grid-template-rows: auto 1fr auto;
   }
 
+}
+
+// Utility classes
+.text-danger {
+  color: $danger;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.d-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }

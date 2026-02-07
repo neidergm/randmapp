@@ -1,6 +1,6 @@
 'use client';
 import { VisitedCharacter } from '@/types/character.types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const LAST_VISITED_KEY = 'lastVisited';
@@ -13,11 +13,18 @@ const getLastVisited = (): VisitedCharacter[] => {
 }
 
 export const useLastVisited = () => {
-    const [visited, setVisited] = useState<VisitedCharacter[]>(getLastVisited());
+    const [visited, setVisited] = useState<VisitedCharacter[] | null>(null);
+
+    useEffect(() => {
+        function loadStorage() {
+            setVisited(getLastVisited());
+        }
+        loadStorage();
+    }, []);
 
     const addVisited = (char: VisitedCharacter) => {
         setVisited((prev) => {
-            const filtered = prev.filter((c) => c.id !== char.id);
+            const filtered = prev?.filter((c) => c.id !== char.id) || [];
             const firstItems = [char, ...filtered].slice(0, MAX_VISITED);
 
             localStorage.setItem(LAST_VISITED_KEY, JSON.stringify(firstItems));

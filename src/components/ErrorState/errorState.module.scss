@@ -1,0 +1,60 @@
+@use '@/styles/variables' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.icon {
+    color: $status-dead;
+}
+
+.title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-main;
+}
+
+.message {
+    font-size: $font-size-sm;
+    color: $primary-muted;
+    max-width: 360px;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.retryButton, .homeLink {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    background-color: $primary;
+    color: $bg-body;
+    border-radius: $radius-sm;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: $primary-hover;
+    }
+}
+
+.retryButton {
+    background-color: transparent;
+    color: $primary;
+    border: 2px solid $primary;
+
+    &:hover {
+        background-color: $primary;
+        color: $bg-body;
+    }
+}
