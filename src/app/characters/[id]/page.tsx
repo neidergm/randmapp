@@ -1,9 +1,9 @@
 import { getCharacterDetail } from '@/actions/characters.actions';
 import VisitedTracker from '../../../components/VisitedTracker';
 import Image from 'next/image';
-import Link from 'next/link';
+import BackButton from '@/components/BackButton';
 import styles from './page.module.scss';
-import { LuArrowLeft, LuDna, LuGlobe, LuMapPin, LuShieldCheck } from 'react-icons/lu';
+import { LuDna, LuGlobe, LuMapPin, LuShieldCheck } from 'react-icons/lu';
 
 const CharacterDetailPage = async ({
     params
@@ -26,10 +26,7 @@ const CharacterDetailPage = async ({
                 status={char.status}
             />
 
-            <Link href="../" className={styles.backLink}>
-                <LuArrowLeft size={18} />
-                Back to Character List
-            </Link>
+            <BackButton className={styles.backLink} />
 
             <div className={styles.hero}>
                 <div className={`${styles.imageWrapper} ${statusClass}`}>

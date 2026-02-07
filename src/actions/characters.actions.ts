@@ -5,13 +5,18 @@ import { Character, CharactersResponse } from "@/types/character.types";
 
 type LoadCharactersAction = {
     page?: number | string;
+    name?: string;
 }
 
 const loadCharacters = async ({
     page = 1,
+    name,
 }: LoadCharactersAction): Promise<CharactersResponse> => {
     try {
-        const result = await fetch(`${API_BASE_URL}/character/?page=${page}`);
+        const params = new URLSearchParams({ page: String(page) });
+        if (name) params.set('name', name);
+
+        const result = await fetch(`${API_BASE_URL}/character/?${params}`);
 
         if (!result.ok) {
             throw new Error('Failed to load characters');
