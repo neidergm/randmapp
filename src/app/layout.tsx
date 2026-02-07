@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import MainHeader from "@/components/MainHeader/MainHeader";
-import MainFooter from "@/components/MainFooter";
+import MainFooter from "@/components/MainFooter/MainFooter";
 
 import "@/styles/globals.scss";
 

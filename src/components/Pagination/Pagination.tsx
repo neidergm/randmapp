@@ -12,6 +12,12 @@ interface PaginationProps {
 const Pagination = ({ totalPages, currentPage = 1 }: PaginationProps) => {
   const searchParams = useSearchParams();
 
+  const buildPageHref = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('page', String(page));
+    return `?${params.toString()}`;
+  };
+
   const getPageNumbers = () => {
     const pages = [];
     const maxVisiblePages = 5;
@@ -55,7 +61,7 @@ const Pagination = ({ totalPages, currentPage = 1 }: PaginationProps) => {
   return (
     <div className={styles.paginationContainer}>
       <Link 
-        href={`?page=${currentPage - 1}`}
+        href={buildPageHref(currentPage - 1)}
         className={`${styles.paginationButton} ${!hasPrevious ? styles.disabled : ''}`}
         onClick={(e) => !hasPrevious && e.preventDefault()}
       >
@@ -69,7 +75,7 @@ const Pagination = ({ totalPages, currentPage = 1 }: PaginationProps) => {
               <span className={styles.ellipsis}>...</span>
             ) : (
               <Link
-                href={`?page=${page}`}
+                href={buildPageHref(page as number)}
                 className={`${styles.pageButton} ${page === currentPage ? styles.active : ''}`}
               >
                 {page}
@@ -80,7 +86,7 @@ const Pagination = ({ totalPages, currentPage = 1 }: PaginationProps) => {
       </div>
 
       <Link 
-        href={`?page=${currentPage + 1}`}
+        href={buildPageHref(currentPage + 1)}
         className={`${styles.paginationButton} ${!hasNext ? styles.disabled : ''}`}
         onClick={(e) => !hasNext && e.preventDefault()}
       >

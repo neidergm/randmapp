@@ -8,13 +8,13 @@ import styles from "./page.module.scss";
 const HomePage = async ({
     searchParams
 }: {
-    searchParams: Promise<{ page?: string }>
+    searchParams: Promise<{ page?: string; name?: string }>
 }) => {
 
-    const { page } = await searchParams;
+    const { page, name } = await searchParams;
     const currentPage = parseInt(page || '1', 10);
 
-    const { info, results: characters } = await loadCharacters({ page: currentPage })
+    const { info, results: characters } = await loadCharacters({ page: currentPage, name })
 
     return (
         <div className={styles.container}>

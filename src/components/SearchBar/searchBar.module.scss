@@ -1,8 +1,12 @@
+@use '@/styles/mixins' as mix;
 @use '@/styles/variables' as *;
 
 .searchBarContainer {
     position: relative;
-    min-width: 25rem;
+    width: 100%;
+    @include mix.screen("tablet", min) {
+        max-width: 25rem;
+    }
 
     .searchInput {
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -33,6 +37,7 @@
     }
 
     .searchIcon {
+        cursor: pointer;
         position: absolute;
         left: 1rem;
         top: 50%;
@@ -45,4 +50,26 @@
     &:has(.searchInput:focus) .searchIcon {
         color: $primary;
     }
+}
+
+@keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 0.8s linear infinite;
+    color: $primary;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
