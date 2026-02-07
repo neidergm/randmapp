@@ -1,9 +1,10 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { LuLoader, LuSearch } from 'react-icons/lu';
+import { LuSearch } from 'react-icons/lu';
 import styles from './searchBar.module.scss';
 import { useCallback, useRef, useState, useTransition } from 'react';
+import Spinner from '@/components/Spinner/Spinner';
 
 const SearchBar = () => {
     const router = useRouter();
@@ -48,7 +49,7 @@ const SearchBar = () => {
         <form onSubmit={handleSearch} className={styles.searchBarContainer} ref={formRef}>
             <button type="submit">
                 {isPending
-                    ? <LuLoader className={`${styles.searchIcon} ${styles.spinning}`} size={20} />
+                    ? <Spinner size={20} className={styles.searchIcon} />
                     : <LuSearch className={styles.searchIcon} size={20} />
                 }
             </button>

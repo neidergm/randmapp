@@ -13,8 +13,6 @@ const CharacterDetailPage = async ({
     const { id } = await params;
     const char = await getCharacterDetail(id);
 
-    console.log('Character Detail:', char);
-
     const statusClass = styles[char.status.toLowerCase()] || '';
 
     return (

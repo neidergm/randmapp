@@ -11,12 +11,16 @@ type LoadCharactersAction = {
 const loadCharacters = async ({
     page = 1,
     name,
-}: LoadCharactersAction): Promise<CharactersResponse> => {
+}: LoadCharactersAction): Promise<CharactersResponse | null> => {
     try {
         const params = new URLSearchParams({ page: String(page) });
         if (name) params.set('name', name);
 
         const result = await fetch(`${API_BASE_URL}/character/?${params}`);
+
+        if (result.status === 404) {
+            return null;
+        }
 
         if (!result.ok) {
             throw new Error('Failed to load characters');
