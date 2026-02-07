@@ -1,0 +1,152 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as *;
+
+@keyframes shimmer {
+    0% {
+        background-position: -400px 0;
+    }
+    100% {
+        background-position: 400px 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, $bg-card 25%, $bg-border 50%, $bg-card 75%);
+    background-size: 800px 100%;
+    animation: shimmer 1.5s infinite ease-in-out;
+    border-radius: $radius-sm;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+
+    @include mix.screen("tablet", max) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.aside {
+    padding: 2rem 1rem;
+    background: $bg-surface;
+    border-right: 1px solid $bg-border;
+
+    @include mix.screen("tablet", min) {
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+}
+
+.asideTitle {
+    width: 160px;
+    height: 16px;
+    margin-bottom: 2rem;
+}
+
+.asideItem {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 0.5rem;
+}
+
+.asideAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.asideLines {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.asideLine1 {
+    width: 80%;
+    height: 14px;
+}
+
+.asideLine2 {
+    width: 50%;
+    height: 12px;
+}
+
+.main {
+    padding: 2rem 2rem 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include mix.screen("tablet", max) {
+        padding: 1rem;
+    }
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.countSkeleton {
+    width: 180px;
+    height: 20px;
+}
+
+.searchSkeleton {
+    width: 25rem;
+    height: 44px;
+    border-radius: 0.5rem;
+
+    @include mix.screen("tablet", max) {
+        width: 100%;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    border-radius: $radius-md;
+    overflow: hidden;
+    background-color: $bg-card;
+    border: 1px solid $bg-border;
+}
+
+.cardImage {
+    width: 100%;
+    height: 300px;
+    border-radius: 0;
+}
+
+.cardContent {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cardTitle {
+    width: 70%;
+    height: 20px;
+}
+
+.cardMeta {
+    width: 50%;
+    height: 14px;
+}
+
+.cardMeta2 {
+    width: 60%;
+    height: 14px;
+}

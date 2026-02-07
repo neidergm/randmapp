@@ -52,6 +52,16 @@
     }
 }
 
+@keyframes spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 0.8s linear infinite;
+    color: $primary;
+}
+
 .srOnly {
     position: absolute;
     width: 1px;
