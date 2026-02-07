@@ -1,0 +1,130 @@
+@use '@/styles/variables' as *;
+
+.card {
+  background-color: $bg-card;
+  backdrop-filter: blur(10px);
+  border-radius: $radius-md;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: $text-main;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid $bg-border;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 3px 15px -3px rgba($primary, 0.57);
+    border-color: $status-alive;
+
+    .imageWrapper>img {
+      transform: scale(1.05);
+    }
+
+    .button {
+      background-color: $warning;
+      color: $text-main;
+    }
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+
+  &>img {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+}
+
+.content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  gap: 0.5rem;
+  color: $primary-muted;
+
+  >div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  background-color: rgba(0, 5, 1, 0.33);
+  padding: 0.4rem 0.7rem;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-xs;
+  text-transform: uppercase;
+
+  &>span:first-child {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.375rem;
+    background-color: $dark;
+
+  }
+
+  &.alive>span:first-child {
+    background-color: $status-alive;
+    box-shadow: 0 0 12px $status-alive;
+  }
+
+  &.dead>span:first-child {
+    background-color: $status-dead;
+    box-shadow: 0 0 12px $status-dead;
+  }
+
+}
+
+.species {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.button {
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 1px solid $warning;
+  color: $warning;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: center;
+}

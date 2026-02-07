@@ -1,0 +1,73 @@
+
+// ==========================================
+// COLORS
+// ==========================================
+
+// Primary (Green accent)
+$primary: #0df259;
+$primary-hover: #0dd454;
+$primary-muted: #90cba4;
+$primary-dark: #385e45;
+
+// Backgrounds
+$bg-body: #102216;
+$bg-surface: #152a1d;
+$bg-card: #1a2e22;
+$bg-border: #22492f;
+
+// Text
+$text-main: #f5f5f5;
+$text-muted: #9e9e9e;
+$text-white-80: #ffffffcc;
+
+// Status
+$status-alive: #00ff2f;
+$status-dead: #ff2301;
+
+// Semantic
+$warning: #ff9800;
+$dark: #171717;
+
+// ==========================================
+// BREAKPOINTS
+// ==========================================
+
+$bp-mobile: 576px;
+$bp-tablet: 768px;
+$bp-desktop: 992px;
+$bp-large: 1200px;
+$bp-xlarge: 1400px;
+
+$breakpoints: (
+  "mobile":  $bp-mobile,
+  "tablet":  $bp-tablet,
+  "desktop": $bp-desktop,
+  "large":   $bp-large,
+  "xlarge":  $bp-xlarge
+);
+
+// ==========================================
+// FONTS
+// ==========================================
+
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$font-size-xs: 0.75rem; // 12px
+$font-size-sm: 0.875rem; // 14px
+$font-size-base: 1rem;   // 16px
+$font-size-lg: 1.25rem; // 20px
+$font-size-xl: 1.5rem;  // 24px
+
+// ==========================================
+// BORDERS & SHADOWS
+// ==========================================
+
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);

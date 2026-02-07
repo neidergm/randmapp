@@ -1,0 +1,187 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as mix;
+
+.container {
+    padding: 2rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+// Back link
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+// Hero layout
+.hero {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 3rem;
+    align-items: start;
+
+    @include mix.screen("tablet", max) {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+}
+
+// Image
+.imageWrapper {
+    position: relative;
+    border-radius: $radius-md;
+    overflow: hidden;
+    border: 3px solid $dark;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 0 15px $dark;
+
+    &.alive {
+        border-color: $primary;
+        box-shadow: 0 0 25px rgba($status-alive, 0.5);
+    }
+
+    &.dead {
+        border-color: $status-dead;
+        box-shadow: 0 0 25px rgba($status-dead, 0.5);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+    }
+}
+
+.statusBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: rgba(0, 5, 1, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 0.4rem 0.75rem;
+    border-radius: $radius-sm;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: $text-main;
+}
+
+.statusDot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: $dark;
+
+    .alive & {
+        background-color: $primary;
+        box-shadow: 0 0 10px $primary;
+    }
+
+    .dead & {
+        background-color: $status-dead;
+        box-shadow: 0 0 10px $status-dead;
+    }
+}
+
+// Info section
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.uid {
+    color: $primary;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.name {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: $font-weight-black;
+    color: $text-main;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.divider {
+    width: 100px;
+    height: 4px;
+    background-color: $primary;
+    border-radius: 2px;
+    margin: 1.5rem 0 2rem;
+}
+
+// Info grid
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @include mix.screen("mobile", max) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.infoCard {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: $bg-surface;
+    border: 1px solid $primary-dark;
+    border-radius: $radius-md;
+    padding: 1.25rem;
+
+    >div:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}
+
+.infoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: $radius-sm;
+    background-color: $primary-dark;
+    color: $primary;
+}
+
+.infoLabel {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $primary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.infoValue {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $text-main;
+}

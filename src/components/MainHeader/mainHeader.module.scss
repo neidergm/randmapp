@@ -1,0 +1,46 @@
+@use '@/styles/variables' as *;
+
+.headerContainer {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $bg-border;
+    color: $text-main;
+
+    .brand{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .logo{
+            background-color: $bg-border;
+            color: $primary;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 30px;
+            animation: logoColorChange 3s infinite;
+        }
+
+        .text{
+            font-size: 1.5rem;
+
+            h6{
+                color: $primary;
+            }
+        }
+    }
+}
+
+@keyframes logoColorChange {
+    0% {
+        color: $primary;
+    }
+    50% {
+        color: $primary-muted;
+        background-color: $primary-dark;
+    }
+    100% {
+        color: $primary;
+    }
+}

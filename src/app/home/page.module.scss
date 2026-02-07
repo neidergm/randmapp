@@ -1,0 +1,43 @@
+@use "@/styles/mixins" as mix;
+@use "@/styles/variables" as *;
+
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+
+  @include mix.screen("tablet", max) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.aside {
+  padding: 2rem 1rem;
+  background: $bg-surface;
+  border-right: 1px solid $bg-border;
+  position: sticky;
+  top: 0;
+}
+
+.main {
+  padding: 2rem 2rem 2rem 0;
+  border-radius: $radius-lg;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .searchContainer {
+    flex-wrap: wrap;
+    color: $primary-muted;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .charactersContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+}

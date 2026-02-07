@@ -1,0 +1,39 @@
+@use "@/styles/variables" as *;
+
+:root {
+  --background: #ffffff;
+  --foreground: $dark;
+}
+
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+body {
+  background: $bg-body;
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+
+  &>main {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    &>footer {
+      margin: 0.5rem 0;
+      opacity: 0.6;
+      padding: 0.5rem;
+      color: $text-main;
+
+      * {
+        font-size: 0.75rem;
+        text-align: center;
+      }
+    }
+  }
+
+}

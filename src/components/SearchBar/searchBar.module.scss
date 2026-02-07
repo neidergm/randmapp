@@ -1,0 +1,48 @@
+@use '@/styles/variables' as *;
+
+.searchBarContainer {
+    position: relative;
+    min-width: 25rem;
+
+    .searchInput {
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+        width: 100%;
+        box-shadow: 0 0 10px rgba($primary, 0.3), 0 0 20px rgba($primary, 0.1);
+        background-color: $bg-card;
+
+        border: 2px solid $primary-dark;
+        border-radius: 0.5rem;
+
+        padding: 0.75rem;
+        padding-left: 3rem;
+
+        color: $text-white-80;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+
+        &::placeholder {
+            color: $primary-dark;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $primary;
+            box-shadow: 0 0 15px rgba($primary, 0.5), 0 0 30px rgba($primary, 0.2);
+        }
+    }
+
+    .searchIcon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $primary-dark;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+    }
+
+    &:has(.searchInput:focus) .searchIcon {
+        color: $primary;
+    }
+}

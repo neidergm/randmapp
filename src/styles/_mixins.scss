@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "@/styles/variables" as v;
+
+// Mixing for responsive media queries
+// Default type is "min" (min-width). Use "max" for max-width queries.
+@mixin screen($breakpoint, $type: min) {
+
+    $value: map.get(v.$breakpoints, $breakpoint);
+
+    @if not $value {
+        $value: $breakpoint;
+    }
+
+    @if $type ==max {
+
+        // To avoid overlap, subtract 0.02px
+        @media (max-width: ($value - 0.02px)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: $value) {
+            @content;
+        }
+    }
+}
