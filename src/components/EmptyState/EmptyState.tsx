@@ -3,8 +3,8 @@ import { LuSearchX } from 'react-icons/lu';
 import styles from './emptyState.module.scss';
 
 interface EmptyStateProps {
-    title?: string;
-    message?: string;
+    title: string;
+    message: string;
     actionHref?: string;
     actionLabel?: string;
 }
