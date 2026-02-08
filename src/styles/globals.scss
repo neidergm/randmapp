@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "@/styles/variables" as *;
 
 :root {
@@ -14,7 +15,7 @@
 }
 
 body {
-  background: radial-gradient(ellipse at center, lighten($bg-body, 6%) 0%, $bg-body 70%);
+  background: radial-gradient(ellipse at center, color.adjust($bg-body, $lightness: 6%) 0%, $bg-body 70%);
   color: var(--foreground);
   font-family: var(--font-space-grotesk), sans-serif;
 

@@ -12,7 +12,7 @@
     &:hover {
         background-color: $bg-border;
         border-color: $primary-dark;
-        border-radius: 8px;
+        border-radius: $radius-sm;
 
         .name {
             color: $status-alive;
@@ -57,13 +57,13 @@
     flex-direction: column;
 
     .name {
-        font-weight: bold;
+        font-weight: $font-weight-bold;
         color: $text-main;
     }
 
     .action {
         margin-top: 0.25rem;
-        font-size: 0.875rem;
+        font-size: $font-size-sm;
         color: $primary-muted;
     }
 }

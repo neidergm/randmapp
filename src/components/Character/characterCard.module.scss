@@ -22,11 +22,7 @@
       transform: scale(1.05);
     }
 
-    .button {
-      background-color: $warning;
-      color: $text-main;
-    }
-  }
+}
 }
 
 .imageWrapper {
@@ -54,8 +50,8 @@
 }
 
 .name {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-black;
   margin: 0 0 0.5rem 0;
   line-height: 1.2;
 }
@@ -63,8 +59,8 @@
 .meta {
   display: flex;
   flex-direction: column;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
   margin-bottom: 0.25rem;
   gap: 0.5rem;
   color: $primary-muted;
@@ -112,19 +108,3 @@
 
 }
 
-.species {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.button {
-  margin-top: auto;
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 1px solid $warning;
-  color: $warning;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  text-align: center;
-}

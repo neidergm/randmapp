@@ -18,12 +18,12 @@
             border-radius: 50%;
             display: grid;
             place-items: center;
-            font-size: 30px;
+            font-size: $font-size-xl;
             animation: logoColorChange 3s infinite;
         }
 
         .text{
-            font-size: 1.5rem;
+            font-size: $font-size-xl;
 
             h6{
                 color: $primary;

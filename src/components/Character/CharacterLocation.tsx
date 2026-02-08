@@ -9,13 +9,15 @@ const CharacterLocation = ({ location }: { location: CharLocation }) => {
 
     const { data, loading, error } = useFetch<FetchLocationResult>(location.url);
 
+    if (!location.url) return null;
+
     if (loading) return <Spinner size={20}>Loading data...</Spinner>;
 
-    if (error) return <div className="d-flex alig-center" >
+    if (error) return <div className="d-flex align-center" >
         <LuTriangleAlert size={16} className="text-danger"/> &nbsp; Error loading data
     </div>;
 
-    if (!data) return <div>No location data available</div>;
+    if (!data) return null;
 
     return (
         <>
