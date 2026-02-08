@@ -5,8 +5,8 @@ import styles from './errorState.module.scss';
 import Link from 'next/link';
 
 interface ErrorStateProps {
-    title?: string;
-    message?: string;
+    title: string;
+    message: string;
     retry?: () => void;
     actionHref?: string;
     actionLabel?: string;
