@@ -6,6 +6,18 @@ interface UseFetchReturn<T> {
     error: Error | null;
 }
 
+/**
+ * Generic data-fetching hook with loading, error, and abort-on-unmount support.
+ *
+ * @template T - The expected shape of the response JSON.
+ * @param url - The URL to fetch. Pass an empty string to skip the request.
+ * @returns An object with `data`, `loading`, and `error` state.
+ *
+ * @example
+ * ```ts
+ * const { data, loading, error } = useFetch<User>('https://api.example.com/user/1');
+ * ```
+ */
 export function useFetch<T>(url: string): UseFetchReturn<T> {
     const [data, setData] = useState<T | null>(null);
     const [loading, setLoading] = useState(true);

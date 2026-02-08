@@ -17,7 +17,6 @@
   border-right: 1px solid $bg-border;
   overflow-y: auto;
   height: auto;
-  max-height: auto;
 
   @include mix.screen("tablet", min) {
     max-height: 100vh;

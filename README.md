@@ -52,6 +52,9 @@ npm run dev
 | `npm run build` | Generate production build |
 | `npm run start` | Serve production build |
 | `npm run lint` | Run ESLint |
+| `npm run test` | Run Jest with RTL |
+| `npm run test:watch` | Run Jest with RTL watching changes |
+| `npm run test:coverage` | Run Jest RTL coverage |
 
 ## Project Structure
 

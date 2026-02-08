@@ -1,4 +1,9 @@
-import { loadCharacters, getCharacterDetail } from './characters.actions';
+jest.mock('next/cache', () => ({
+    revalidateTag: jest.fn(),
+}));
+
+import { loadCharacters, getCharacterDetail, revalidateCharacters } from './characters.actions';
+import { revalidateTag } from 'next/cache';
 
 describe('characters actions', () => {
     beforeEach(() => {
@@ -85,6 +90,15 @@ describe('characters actions', () => {
             });
 
             await expect(getCharacterDetail('999')).rejects.toThrow('Failed to load character details');
+        });
+    });
+
+    describe('revalidateCharacters', () => {
+        it('should call revalidateTag for characters and character-detail', async () => {
+            await revalidateCharacters();
+
+            expect(revalidateTag).toHaveBeenCalledWith('characters', expect.anything());
+            expect(revalidateTag).toHaveBeenCalledWith('character-detail', expect.anything());
         });
     });
 });
